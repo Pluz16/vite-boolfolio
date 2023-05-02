@@ -2,7 +2,9 @@
   <div class="container">
     <h1 class="text-center my-4">Boolfolio</h1>
     <button class="btn btn-primary my-4" @click="showList = true">Visualizza la lista dei progetti</button>
-    <projects-list v-if="showList" :projects="projects" />
+    <div v-if="projects && showList">
+      <projects-list :projects="projects" />
+    </div>
   </div>
 </template>
 
@@ -17,8 +19,8 @@ export default {
   },
   data() {
     return {
-      projects: [],
-      showList: false, // aggiungi questa variabile di stato per gestire la visualizzazione della lista
+      projects: undefined,
+      showList: false,
     }
   },
   async mounted() {
@@ -34,5 +36,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./style.scss"; // Importa il file style.scss
+@import "./style.scss";
 </style>
