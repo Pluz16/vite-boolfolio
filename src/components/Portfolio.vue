@@ -8,7 +8,7 @@
   import ProjectCard from './ProjectCard.vue';
   
   export default {
-    name: 'ProjectsList',
+    name: 'Portfolio',
     components: {
       ProjectCard,
     },

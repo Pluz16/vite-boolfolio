@@ -3,19 +3,19 @@
     <h1 class="text-center my-4">Boolfolio</h1>
     <button class="btn btn-primary my-4" @click="showList = true">Visualizza la lista dei progetti</button>
     <div v-if="projects && showList">
-      <projects-list :projects="projects" />
+      <portfolio :projects="projects" />
     </div>
   </div>
 </template>
 
 <script>
-import ProjectsList from './components/ProjectsList.vue';
+import Portfolio from './components/Portfolio.vue';
 import axios from 'axios';
 
 export default {
   name: 'App',
   components: {
-    ProjectsList,
+    Portfolio,
   },
   data() {
     return {
