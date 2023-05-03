@@ -6,7 +6,7 @@
           <p class="card-text">{{ project.description }}</p>
           <ul class="list-unstyled">
             <li>URL: <a :href="project.url" target="_blank">{{ project.url }}</a></li>
-            <li>Type: {{ project.type }}</li>
+            <li>Type: {{ project.type.name }}</li>
             <!-- <li>Technology: {{ project.technology }}</li> -->
           </ul>
         </div>
