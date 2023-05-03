@@ -19,21 +19,23 @@ export default {
   },
   data() {
     return {
-      projects: undefined,
+      projects: [],
       showList: false,
     }
   },
   async mounted() {
     try {
       const response = await axios.get('http://localhost:8000/api/projects');
-      this.projects = response.data.data;
+      this.projects = response.data;
       console.log(this.projects);
+      this.showList = true; // Imposta showList su true dopo aver caricato i progetti
     } catch (error) {
       console.error(error);
     }
   },
 }
 </script>
+
 
 <style lang="scss">
 @import "./style.scss";
