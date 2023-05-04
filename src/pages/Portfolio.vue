@@ -1,26 +1,29 @@
 <template>
-  <div>
-    <div class="row">
-      <project-card v-for="project in paginatedProjects" :key="project.id" :project="project">
-  <router-link :to="{ name: 'projectDetail', params: { id: project.id }}">
-    Vedi dettagli
-  </router-link>
-</project-card>
+  <base-layout>
+    <div class="container">
+      <div class="row">
+        <project-card v-for="project in paginatedProjects" :key="project.id" :project="project">
+          <router-link :to="{ name: 'projectDetail', params: { id: project.id }}">Vedi dettagli</router-link>
+        </project-card>
+      </div>
+      <div class="pagination">
+        <button v-if="currentPage > 1" @click="prevPage">Previous</button>
+        <button v-if="currentPage < numPages" @click="nextPage">Next</button>
+      </div>
     </div>
-    <div class="pagination">
-      <button v-if="currentPage > 1" @click="prevPage">Previous</button>
-      <button v-if="currentPage < numPages" @click="nextPage">Next</button>
-    </div>
-  </div>
+  </base-layout>
 </template>
+
 <script>
 import ProjectCard from './ProjectCard.vue';
 import axios from 'axios';
+import BaseLayout from '../layouts/BaseLayout.vue';
 
 export default {
   name: 'Portfolio',
   components: {
     ProjectCard,
+    BaseLayout,
   },
   data() {
     return {
@@ -61,6 +64,7 @@ export default {
   },
 };
 </script>
+
 <style lang="scss">
 .pagination {
   display: flex;
