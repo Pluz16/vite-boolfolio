@@ -1,16 +1,20 @@
 <template>
-  <div class="container">
+  <BaseLayout>
     <router-view></router-view>
-  </div>
+  </BaseLayout>
 </template>
 
 <script>
+import BaseLayout from './layouts/BaseLayout.vue';
+
 export default {
   name: 'App',
+  components: {
+    BaseLayout,
+  },
 };
 </script>
 
 <style lang="scss">
 @import "./style.scss";
 </style>
-
