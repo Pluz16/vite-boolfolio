@@ -1,7 +1,11 @@
 <template>
   <div>
     <div class="row">
-      <project-card v-for="project in paginatedProjects" :key="project.id" :project="project" />
+      <project-card v-for="project in paginatedProjects" :key="project.id" :project="project">
+  <router-link :to="{ name: 'projectDetail', params: { id: project.id }}">
+    Vedi dettagli
+  </router-link>
+</project-card>
     </div>
     <div class="pagination">
       <button v-if="currentPage > 1" @click="prevPage">Previous</button>
