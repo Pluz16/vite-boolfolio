@@ -1,60 +1,48 @@
 <template>
-    <div>
-      <nav>
-        <a href="#">Logo</a>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Portfolio</a></li>
+  <div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+      <a class="navbar-brand" href="#">My Website</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <router-link to="/" class="nav-link">Home</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/about" class="nav-link">About</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/portfolio" class="nav-link">Portfolio</router-link>
+          </li>
         </ul>
-      </nav>
-      
-      <div class="container">
-        <slot name="content" />
       </div>
+    </nav>
+    <div class="container">
+      <slot name="content"/>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    name: 'Layout',
-    props: {
-      pageTitle: {
-        type: String,
-        default: 'My Website'
-      }
-    },
-  };
-  </script>
+  </div>
+</template>
 
-  <style lang="scss">
-$primary-color: #007bff;
-$secondary-color: #6c757d;
-$nav-height: 4rem;
+<script>
+export default {
+  name: 'Layout',
+};
+</script>
 
-nav {
-  background-color: $primary-color;
-  height: $nav-height;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 1rem;
+<style lang="scss">
+  .navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
   
-  a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.2rem;
+  .navbar-nav .nav-link {
     font-weight: bold;
     text-transform: uppercase;
   }
-}
-
-.main-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem;
-}
-
-
-
-    </style>
+  
+  .container {
+    margin-top: 4rem;
+  }
+</style>

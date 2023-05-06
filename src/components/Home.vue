@@ -11,13 +11,13 @@
 export default {
   name: 'Home',
   methods: {
-    goToPortfolio() {
-      this.$router.push('/portfolio');
-    },
-    goToAbout() {
-      this.$router.push('/about');
-    },
+  goToPortfolio() {
+    this.$router.push('/portfolio');
   },
+  goToAbout() {
+    this.$router.push('/about');
+  },
+},
 };
 </script>
   

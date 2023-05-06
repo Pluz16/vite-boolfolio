@@ -1,3 +1,10 @@
+import { createRouter, createWebHistory } from 'vue-router'
+import Home from './components/Home.vue'
+import Portfolio from './pages/Portfolio.vue'
+import About from './pages/About.vue'
+import ProjectDetail from './pages/ProjectDetail.vue';
+import BaseLayout from './layouts/BaseLayout.vue'
+
 const routes = [
   {
     path: '/',
@@ -25,10 +32,25 @@ const routes = [
   },
   {
     path: '/projects/:id',
-    name: 'projectDetail',
+    name: 'ProjectDetail',
     component: ProjectDetail,
     meta: {
       layout: BaseLayout
     }
   }
 ]
+
+const router = createRouter({
+  history: createWebHistory(),
+  routes
+})
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.layout) {
+    to.meta.layout = BaseLayout;
+  }
+  next();
+});
+
+
+export default router;
