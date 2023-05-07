@@ -7,7 +7,7 @@ import BaseLayout from './layouts/BaseLayout.vue'
 
 const routes = [
   {
-    path: '/',
+    path: '/home',
     name: 'Home',
     component: Home,
     meta: {
@@ -51,7 +51,5 @@ router.beforeEach((to, from, next) => {
   }
   next();
 });
-
-
 
 export default router;
